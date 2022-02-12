@@ -64,12 +64,17 @@ const canWatchRatedR = moviePatrons.filter(function(patron) {
 // And call that array canWatchRatedR.
 //
 // Why would you use this? The canWatchRatedR could subsequently be used by an email function to only email patrons
-// about a Rated R movie.
+// about a Rated R movie, using something like the solution here: console.log(`https://www.w3schools.com/nodejs/nodejs_email.asp`);
 //
-function sendEmailAboutNewRatedRMovie(movieName){
-  canWatchRatedR.forEach(patron => window.open(`mailto:${patron.name}@gmail.com?subject=${movieName}&body=Hey ${patron.name}, ${movieName} is out now. Go see it.`));
+function sendAgeRestrictedEmail(movieName) {
+  console.log(`TODO: 
+  Implement email solution like this: https://www.w3schools.com/nodejs/nodejs_email.asp 
+  (similar to a client-side javascript solution, but actually send it)`);
+  canWatchRatedR.forEach(patron => console.log(
+      `window.open(mailto:${patron.name}@gmail.com?subject=${movieName}&body=Hey ${patron.name}, You're ${patron.age} now. ${movieName} is out. Go see it.)`
+  ));
 }
-sendEmailAboutNewRatedRMovie("Midsommar")
+sendAgeRestrictedEmail("Midsommar");
 //JAMES ARASIM/////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -88,7 +93,7 @@ const cardedMoviePatrons = moviePatrons.map(patron => {
   // Be sure to return the new obj, not the parameter
   return pObj;
 });
-console.log("Movie Patrons: ")
+console.log("Movie Patrons: \n")
 console.log(moviePatrons);
-console.log("\nCarded Movie Patrons: ");
+console.log("\nCarded Movie Patrons: \n");
 console.log(cardedMoviePatrons);
