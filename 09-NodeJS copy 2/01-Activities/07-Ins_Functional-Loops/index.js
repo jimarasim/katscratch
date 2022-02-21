@@ -126,12 +126,12 @@ function noCopyAssignment(patronObject){
   //NOTE: When you assign one object equal to another directly like this, using the assignment "=" operator,
   // you end up with a reference to the same object; thus, any changes to the object referred by the
   // new variable changes the original object, which may or may not be intended.
-  const aStraightCopiedObject = patronObject;
-  aStraightCopiedObject.copytype = "straight";
-  return aStraightCopiedObject;
+  const aReferencedObject = patronObject;
+  aReferencedObject.copytype = "referenced";
+  return aReferencedObject;
 };
 console.log(`PRE noCopyAssignment JimsMoviePatrons ${JSON.stringify(JimsMoviePatrons)}`); //print out array to see what it looks like before calling our function
-console.log(`RETURNED BY noCopyAssignment ${JSON.stringify(straightCopy(JimsMoviePatrons[0]))}`); //pass the first object of the array to our function "straightCopy"
+console.log(`RETURNED BY noCopyAssignment ${JSON.stringify(noCopyAssignment(JimsMoviePatrons[0]))}`); //pass the first object of the array to our function "noCopyAssignment"
 console.log(`POST noCopyAssignment JimsMoviePatrons CHANGED ${JSON.stringify(JimsMoviePatrons)}`); //note the addition of the "copytype" property to the first object; the original object passed to the function gets changed
 console.log(`bruteForceCopy=========================================================================================================`);
 function bruteForceCopy(patronObject){
